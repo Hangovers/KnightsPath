@@ -15,16 +15,18 @@ import static java.net.http.HttpResponse.BodyHandlers.ofString;
 
 public class ApiClient {
 
+
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
     private static final String BOARD_API = System.getenv("BOARD_API");
     private static final String COMMANDS_API = System.getenv("COMMANDS_API");
+    public static final Duration TIMEOUT = Duration.ofSeconds(10);
 
     public ApiClient() {
         this.httpClient = HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.NORMAL)
-                .connectTimeout(Duration.ofSeconds(10))
+                .connectTimeout(TIMEOUT)
                 .build();
 
         this.objectMapper = new ObjectMapper();
@@ -34,6 +36,7 @@ public class ApiClient {
         var request = HttpRequest.newBuilder()
                 .uri(new URI(BOARD_API))
                 .header("Accept","application/json")
+                .timeout(TIMEOUT)
                 .GET()
                 .build();
 
@@ -51,6 +54,7 @@ public class ApiClient {
         var request = HttpRequest.newBuilder()
                 .uri(new URI(COMMANDS_API))
                 .header("Accept","application/json")
+                .timeout(TIMEOUT)
                 .GET()
                 .build();
 
