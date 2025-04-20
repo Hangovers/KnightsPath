@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    id("application")
+    id("com.github.johnrengelman.shadow") version '8.1.1'
 }
 
 group = "com.github.hangovers"
@@ -15,6 +17,21 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+application {
+    mainClass = 'com.github.hangovers.Main'
+}
+
+tasks.shadowJar {
+    archiveBaseName.set('KnightsPath')
+    archiveVersion.set('1.0-SNAPSHOT')
+    mergeServiceFiles()
+}
+
+tasks.build {
+    dependsOn(tasks.shadowJar)
+}
+
 tasks.test {
     useJUnitPlatform()
 }
+
