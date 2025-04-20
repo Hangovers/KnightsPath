@@ -1,5 +1,7 @@
 package com.github.hangovers.model.dto;
 
 
-public record Response(Position position, Status status) {
-}
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+public record Response(@JsonInclude(JsonInclude.Include.NON_NULL) Position position,
+                       Status status) { }
