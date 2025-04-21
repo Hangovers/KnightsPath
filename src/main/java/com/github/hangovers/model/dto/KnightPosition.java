@@ -34,7 +34,7 @@ public class KnightPosition {
                 case SOUTH ->  newCoordinates = new Coordinates(coordinates.x(), coordinates.y() - 1);
             }
 
-            if(!board.isWithinBounds(newCoordinates)) throw new IOException("Out of bounds");
+            if(board.isOutOfBounds(newCoordinates)) throw new IOException("Out of bounds");
             if(board.checkCollision(newCoordinates)) {
                 numberOfSteps = 0;
             } else {
@@ -48,7 +48,7 @@ public class KnightPosition {
         return coordinates;
     }
 
-    public void updateCoordinates(Coordinates newCoordinates) {
-        this.coordinates = newCoordinates;
+    public Direction getDirection() {
+        return direction;
     }
 }

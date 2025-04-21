@@ -1,0 +1,18 @@
+{
+   "commands":[
+      "START 3,7,SOUTH",
+      "MOVE 4",
+      "ROTATE WEST",
+      "MOVE 2",
+      "ROTATE SOUTH",
+      "MOVE 2",
+      "ROTATE EAST",
+      "MOVE 10",
+      "ROTATE SOUTH",
+      "MOVE 1",
+      "ROTATE EAST",
+      "MOVE 3",
+      "ROTATE NORTH",
+      "MOVE 8"
+   ]
+} 

@@ -75,9 +75,11 @@ public class Main {
     }
 
     private static void validateStartingPosition(Board board, KnightPosition knightPosition) throws JsonProcessingException {
-        if(board != null
-                && !board.isWithinBounds(knightPosition.getCoordinates())
-                && !board.checkCollision(knightPosition.getCoordinates())) {
+        if (board == null || knightPosition == null) {
+            outputErrorResponse(Status.GENERIC_ERROR);
+            return;
+        }
+        if (board.isOutOfBounds(knightPosition.getCoordinates()) || board.checkCollision(knightPosition.getCoordinates())) {
             outputErrorResponse(Status.INVALID_START_POSITION);
         }
     }
