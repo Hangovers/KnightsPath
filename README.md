@@ -76,6 +76,17 @@ Make sure the `BOARD_API` and `COMMANDS_API` environment variables are set befor
     Replace `<your_board_api_url>` and `<your_commands_api_url>` with the actual API endpoints.
     Input commands you provided in the pdf works fine.
 
+## Testing the Application
+
+The project includes unit tests for key components like the `ApiClient` and `KnightPosition` logic. To run these tests:
+
+1.  Navigate to the project's root directory in your terminal.
+2.  Run the test command:
+    *   Linux/macOS: `./gradlew test`
+    *   Windows: `.\gradlew.bat test`
+
+Gradle will execute the tests and report the results.
+
 ## Input API Formats
 
 The application expects the following JSON structures from the APIs:
