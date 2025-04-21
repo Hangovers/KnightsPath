@@ -9,6 +9,9 @@ import java.time.Duration;
 
 import static java.net.http.HttpResponse.BodyHandlers.ofString;
 
+/**
+ * Fetches board's data and commands list
+ */
 public class ApiClient {
 
     private final HttpClient httpClient;
@@ -22,6 +25,14 @@ public class ApiClient {
                 .build();
     }
 
+    /**
+     *
+     * @param url json url to be fetched
+     * @return json data in string format
+     * @throws URISyntaxException
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public String fetch(String url) throws URISyntaxException, IOException, InterruptedException {
         var request = HttpRequest.newBuilder()
                 .uri(new URI(url))

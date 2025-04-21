@@ -1,5 +1,8 @@
 package com.github.hangovers.model;
 
+/**
+ * Direction enum to easily manage the direction where knight's is currently facing.
+ */
 public enum Direction {
     NORTH("NORTH"),
     EAST("EAST"),

@@ -114,4 +114,19 @@ class KnightPositionTest {
         assertEquals(startCoords, position.getCoordinates(), "Moving zero steps should not change position");
     }
 
+    @Test
+    void startPositionOutOfBounds() {
+        Coordinates outCoordsNegative = new Coordinates(-1, 0);
+        Coordinates outCoordsPositive = new Coordinates(8, 8);
+
+        assertTrue(board.isOutOfBounds(outCoordsNegative), "Position (-1, 0) should be out of bounds");
+        assertTrue(board.isOutOfBounds(outCoordsPositive), "Position (8, 8) should be out of bounds");
+    }
+
+    @Test
+    void startPositionOnObstacle() {
+        Coordinates obstacleCoords = new Coordinates(2, 2);
+
+        assertTrue(board.checkCollision(obstacleCoords), "Position (2, 2) should collide with an obstacle");
+    }
 } 

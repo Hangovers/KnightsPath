@@ -1,5 +1,8 @@
 package com.github.hangovers.model.dto;
 
+/**
+ * Response status enum
+ */
 public enum Status {
     SUCCESS,
     INVALID_START_POSITION,
